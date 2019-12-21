@@ -2,9 +2,7 @@
 {% for choice in choice_list %}
 <form action="{% url 'plot_app:klick' choice.id %}">
     <button type="submit" name="{{ choice.name }}">{{ choice.name }}</button>
+    {{ choice.number }}
 </form>
 {% endfor %}
 
-{% for choice in choice_list %}
-<p>{{ choice.name }} : {{ choice.number }}</p>
-{% endfor %}
