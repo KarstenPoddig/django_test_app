@@ -1,6 +1,6 @@
 <h2>Auswahl</h2>
 {% for choice in choice_list %}
-<form action="{% url 'plot_app:klick' choice.id %}">
+<form action="{% url 'klick' choice.id %}">
     <button type="submit" name="{{ choice.name }}">{{ choice.name }}</button>
     {{ choice.number }}
 </form>
