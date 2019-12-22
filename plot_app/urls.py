@@ -7,9 +7,10 @@ urlpatterns = [
     url(r'^$', views.ChoiceView.as_view(), name='choice'),
     url(r'^(?P<choice_id>[0-9]+)/vote/$', views.klick, name='klick'),
 
-    # Line chart
-    url(r'^line_chart/$', views.line_chart,
-        name='line_chart'),
-    url(r'^line_chart/json/$', views.line_chart_json,
-        name='line_chart_json'),
+
+    # Bar chart
+    # url(r'^klick_bar_chart/$', views.klick_bar_chart,
+    #     name='klick_bar_chart'),
+    url(r'^klick_bar_chart/json/$', views.klick_bar_chart_json,
+        name='klick_bar_chart_json'),
 ]

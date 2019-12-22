@@ -1,3 +1,8 @@
+{% extends "base_generic.html" %}
+
+{% load staticfiles %}
+
+{% block content %}
 <h2>Auswahl</h2>
 {% for choice in choice_list %}
 <form action="{% url 'klick' choice.id %}">
@@ -6,3 +11,19 @@
 </form>
 {% endfor %}
 
+<canvas id="klickChart" width="150" height="100"></canvas>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+    <script type="text/javascript">
+        $.get('{% url "klick_bar_chart_json" %}', function(data) {
+            var ctx = $("#klickChart").get(0).getContext("2d");
+            new Chart(ctx, {
+                type: 'bar',
+                data: data
+            });
+        });
+    </script>
+
+
+{% endblock %}
