@@ -1,12 +1,17 @@
 {% extends "base_generic.html" %}
 
+
 {% load staticfiles %}
 
+
 {% block content %}
+
 <h2>Auswahl</h2>
-{% for choice in choice_list %}
-<form action="{% url 'klick' choice.id %}">
-    <button type="submit" name="{{ choice.name }}">{{ choice.name }}</button>
+
+{% for choice in choices %}
+<form action="" method="post">
+    {% csrf_token %}
+    <button name="choice_id" value ="{{ choice.id }}">{{ choice.name }}</button>
     {{ choice.number }}
 </form>
 {% endfor %}
